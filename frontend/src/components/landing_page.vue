@@ -36,6 +36,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center text-center vh-100">
           <div class="col-md-7">
+            <img class="img-prop" src="../assets/logo.png" alt="">
             <h1 class="display-4">{{ title }}</h1>
             <p class="lead">{{ motto }}</p>
             <div class="btn-group" role="group">
@@ -52,8 +53,8 @@
   export default {
     data() {
       return {
-        title: 'Welcome to Fund-Warden',
-        motto: 'Maximize your earning potential!',
+        // title: 'Fund-Warden',
+        // motto: 'Maximize your earning potential!',
       };
     },
     methods: {
@@ -80,6 +81,12 @@
     margin-top: 20px;
   }
 
+  .img-prop{
+    position:static;
+    
+    width: 500px;
+    height: auto;
+  }
   .btn{
     background-color: #2ecc71;
   }
