@@ -1,21 +1,22 @@
 <template>
   <div id="app">
     <!-- Include the LandingPage component -->
-    <LandingPage />
-    <!-- <FinancialDetails /> -->
+    <!-- <LandingPage /> -->
+    <CarouselForm />
   </div>
 </template>
 
 <script>
 // Import the LandingPage component
-import LandingPage from './components/landing_page.vue';
+// import LandingPage from './components/landing_page.vue';
 // import FinancialDetails from './components/FinancialForm.vue';
+import CarouselForm from './components/CarouselForm.vue';
 
 
 export default {
   components: {
-    LandingPage,
-    // FinancialDetails,
+    // LandingPage,
+    CarouselForm,
   },
 };
 </script>
