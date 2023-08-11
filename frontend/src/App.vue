@@ -5,6 +5,7 @@
     <!-- <CarouselForm /> -->
     <DashBoard />
     <!-- <LoginPage /> -->
+    <!-- <BudgetOptimised /> -->
   </div>
 </template>
 
@@ -15,14 +16,15 @@
 // import CarouselForm from './components/CarouselForm.vue';
 import DashBoard from './components/DashBoard.vue';
 // import LoginPage from './components/LoginPage.vue';
-
+// import BudgetOptimised from './components/BudgetOptimised.vue';
 
 export default {
   components: {
-    // LandingPage,
+    // LandingPage,     
     // CarouselForm,
     DashBoard,
     // LoginPage,
+    // BudgetOptimised,
   },
 };
 </script>

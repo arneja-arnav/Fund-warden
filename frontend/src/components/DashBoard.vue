@@ -1,155 +1,162 @@
 <template>
-    <div class="container-fluid d-flex justify-content-center align-items-center">
-      <div class="row">
-        <div class="col-md-4 d-flex flex-column align-items-center">
-          <div class="card-left mb-3">
-            <div class="card-body-left">
-              <h5 class="card-title">Risky Stocks</h5>
-              <!-- Add content here -->
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="riskyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  Select Stock
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="riskyDropdown">
-                  <li><a class="dropdown-item" href="#">Option 1</a></li>
-                  <li><a class="dropdown-item" href="#">Option 2</a></li>
-                  <li><a class="dropdown-item" href="#">Option 3</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card-left mb-3">
-            <div class="card-body-left">
-              <h5 class="card-title">Safe Stocks</h5>
-              <!-- Add content here -->
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="safeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  Select Stock
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="safeDropdown">
-                  <li><a class="dropdown-item" href="#">Option 1</a></li>
-                  <li><a class="dropdown-item" href="#">Option 2</a></li>
-                  <li><a class="dropdown-item" href="#">Option 3</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card-left mb-3">
-            <div class="card-body-left">
-              <h5 class="card-title">Medium Stocks</h5>
-              <!-- Add content here -->
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="mediumDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  Select Stock
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="mediumDropdown">
-                  <li><a class="dropdown-item" href="#">Option 1</a></li>
-                  <li><a class="dropdown-item" href="#">Option 2</a></li>
-                  <li><a class="dropdown-item" href="#">Option 3</a></li>
-                </ul>
-              </div>
-            </div>
+  <div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="row">
+      <!-- Investment Portfolio Section -->
+      <div class="col-md-4 d-flex flex-column align-items-center">
+        <div class="card-left mb-3">
+          <div class="card-body-left">
+            <h5 class="card-title">Investment Portfolio</h5>
+            <!-- Add content here -->
+            <p class="stocks">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore cupiditate blanditiis voluptatum facilis consequuntur tempora eius reprehenderit fuga, nam earum necessitatibus est harum repellendus asperiores ipsum nobis nulla quae modi.
+            </p>
           </div>
         </div>
-        <div class="col-md-8 d-flex justify-content-center align-items-center">
-          <div class="card-right" style="width: 700px; margin-left: 400px; margin-right: 50px;"> <!-- Adjust width and margins -->
-            <div class="card-body">
-              <h5 class="card-title">Chatbot</h5>
-              <!-- Integrate your chatbot component here -->
-              <div class="chat-container">
-                <div class="chat-message">
-                  User: Hello, chatbot!
+      </div>
+
+      <!-- Chatbot Section -->
+      <div class="col-md-8 d-flex justify-content-center align-items-center">
+        <div class="card-right" style="width: 700px; margin-left: 50px; margin-right: 50px;">
+          <div class="card-body">
+            <h5 class="card-title">Chatbot</h5>
+            <div class="chat-container">
+              <div v-for="(message, index) in chatMessages" :key="index" class="chat-message">
+                <div :class="['message-bubble', message.sender === 'user' ? 'user' : 'bot']">
+                  {{ message.text }}
                 </div>
-                <div class="chat-message">
-                  Bot: Hi there! How can I assist you?
-                </div>
-                <!-- Add more chat messages here -->
               </div>
-              <div class="input-group mt-3">
-                <input type="text" class="form-control" placeholder="Type your message...">
-                <button class="btn btn-primary">Send</button>
-              </div>
+            </div>
+            <div class="input-group mt-3">
+              <input
+                v-model="userInput"
+                type="text"
+                class="form-control"
+                placeholder="Type your message..."
+                @keydown.enter="sendMessage"
+              />
+              <button class="btn btn-primary" @click="sendMessage">Send</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  // Import necessary components here
-  
-  export default {
-    // Component options
-  };
-  </script>
-  
-  <style scoped>
-  /* Add custom styles here */
-  
-  .card-left {
-    margin: 50px 50px 0;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #f8f9fa;
-  }
-  
-  .card-right {
-    margin: 50px 50px 0;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-  }
-  
-  /* .card-body {
-    align-items: center;
-  } */
-  
-  .card-title {
-    align-items: center;
-    text-align: center;
-    color: #ecf0f1;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #34495e;
-  }
+  </div>
+</template>
 
-  .btn{
-    background-color: #2ecc71;
-    text-align: center;
-  }
-  
-  .container-fluid {
-    background-color: #4268EF;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .row {
-    display: flex;
-  }
-  
-  .card-body-left{
-    width: 500px;
-    /* margin-left: 100px; */
-    /* padding-left: 100px; */
-    /* margin-right: 00px; */
-    /* align-items: flex-end; */
-  }
-  /* Chatbot styles */
-  .chat-container {
-    max-height: 200px;
-    overflow-y: scroll;
-  }
+<script>
+export default {
+  data() {
+    return {
+      userInput: '',
+      chatMessages: [
+        { text: 'Hello, chatbot!', sender: 'user' },
+        { text: 'Hi there! How can I assist you?', sender: 'bot' },
+        // Add more initial chat messages here
+      ],
+    };
+  },
+  methods: {
+    sendMessage() {
+      if (this.userInput.trim() === '') return;
+      this.chatMessages.push({ text: this.userInput, sender: 'user' });
+      this.userInput = '';
 
-  .mb-3{
-    margin-left: 200px;
-  }
-  
-  .chat-message {
-    margin: 500px 0;
-  }
-  </style>
-  
+      // Simulate bot response (replace with actual response)
+      this.chatMessages.push({ text: 'I am just a chatbot responding.', sender: 'bot' });
+    },
+  },
+};
+</script>
+
+<style scoped>
+/* ... (existing styles) ... */
+/* .card-body {
+  align-items: center;
+} */
+.card-left {
+  margin: 50px 50px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+}
+
+.card-right {
+  margin: 50px 50px 0;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+.stocks{
+  font-family:monospace;
+  font-size:xx-large;
+}
+.card-title {
+  align-items: center;
+  text-align: center;
+  color: #ecf0f1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #34495e;
+}
+
+.btn{
+  background-color: #2ecc71;
+  text-align: center;
+}
+
+.container-fluid {
+  background-color: #4268EF;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.card-body-left{
+  width: 500px;
+  /* margin-left: 100px; */
+  /* padding-left: 100px; */
+  /* margin-right: 00px; */
+  /* align-items: flex-end; */
+}
+
+/* Chatbot styles */
+.chat-container {
+  height: 17em; /* Adjust as needed based on your design */
+  overflow-y: scroll;
+}
+
+.message-bubble {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+.user {
+  background-color: #2ecc71;
+  color: white;
+  align-self: flex-end;
+}
+
+.bot {
+  background-color: #e1e1e1;
+  color: black;
+  align-self: flex-start;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.btn-primary {
+  border-radius: 10px;
+}
+
+/* ... (existing chatbot-specific styles) ... */
+</style>

@@ -40,7 +40,7 @@
             <h1 class="display-4">{{ title }}</h1>
             <p class="lead">{{ motto }}</p>
             <div class="btn-group" role="group">
-              <button class="btn btn-primary btn-lg" @click="showLoginModal">Login</button>
+              <button class="btn btn-primary btn-lg" @click="showLoginModal">Get Started</button>
               <!-- <button class="btn btn-secondary btn-lg" @click="showSignupModal">Sign Up</button> -->
             </div>
           </div>
