@@ -2,7 +2,8 @@
   <div id="app">
     <!-- Include the LandingPage component -->
     <!-- <LandingPage /> -->
-    <CarouselForm />
+    <!-- <CarouselForm /> -->
+    <DashBoard />
     <!-- <LoginPage /> -->
   </div>
 </template>
@@ -11,14 +12,16 @@
 // Import the LandingPage component
 // import LandingPage from './components/landing_page.vue';
 // import FinancialDetails from './components/FinancialForm.vue';
-import CarouselForm from './components/CarouselForm.vue';
+// import CarouselForm from './components/CarouselForm.vue';
+import DashBoard from './components/DashBoard.vue';
 // import LoginPage from './components/LoginPage.vue';
 
 
 export default {
   components: {
     // LandingPage,
-    CarouselForm,
+    // CarouselForm,
+    DashBoard,
     // LoginPage,
   },
 };
